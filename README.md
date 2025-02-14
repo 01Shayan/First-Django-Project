@@ -34,5 +34,3 @@ If You're On A Windows Machine , Make Environment Ready By Following Steps Below
 5. Go to [http://localhost:8000](http://localhost:8000) to see your Django-Todo-List version.
 =======
 5. Go to [http://localhost:8000](http://localhost:8000) to see your Django-Todo-List version.
->>>>>>> cc12a2a (gitignore update)
-# First-Django-Projectt
