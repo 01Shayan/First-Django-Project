@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %}
+Logout
+{% endblock %}
+
+{% block content %}
+<section>
+	<div class="mycard">
+		<h1>Logout</h1>
+		<ul>
+			<a href="{% url 'account:home' %}">
+				<li>Back</li>
+			</a>
+		</ul>
+	</div>
+</section>
+{% endblock content %}

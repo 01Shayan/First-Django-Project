@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %}
+Login
+{% endblock %}
+
+{% block content %}
+<section class="flex flex-col justify-center px-6 py-12 lg:px-8">
+	<div class="sm:mx-auto sm:w-full sm:max-w-sm">
+		<h2 class="mt-2 text-center text-2xl font-bold leading-9 tracking-tight">Login</h2>
+	</div>
+
+	<div class="mt-6 sm:mx-auto sm:w-full sm:max-w-sm">
+		<form action="{% url 'account:login' %}" method="post">
+			{% csrf_token %}
+			<div class="my-3">
+				<label class="label" for="username">Username</label>
+
+				<input class="input" name="username" type="text" autocomplete="username" required id="username">
+			</div>
+
+			<div class="my-3">
+				<div class="flex items-center mt-3 mb-0 justify-between">
+					<label class="label" for="password">Password</label>
+
+					<a href="{% url 'account:password_reset' %}"
+						class="font-semibold text-sm text-orange-400 hover:text-orange-300 duration-300">Forgot password?</a>
+				</div>
+
+				<input class="input" name="password" type="password" autocomplete="current-password" required id="password">
+			</div>
+
+			<div class="my-3">
+				<button class="login-btn" type="submit">Login</button>
+			</div>
+		</form>
+
+		<div>
+			<p class="mt-10 text-center text-sm text-orange-400">
+				Not a member?
+				<a href="{% url 'account:register' %}"
+					class="font-semibold leading-6 text-slate-200 hover:text-slate-300 duration-300">Register Now</a>
+			</p>
+		</div>
+	</div>
+</section>
+{% endblock content %}

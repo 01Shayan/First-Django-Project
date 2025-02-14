@@ -1,0 +1,81 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+body {
+    @apply scroll-m-96 bg-gradient-to-t from-slate-500 to-slate-700 h-screen text-orange-400 font-body;
+}
+
+.input {
+    @apply block mt-2 mb-4 w-full rounded-md border-0 py-2 text-gray-900 shadow-2xl ring-1 ring-inset ring-slate-600 placeholder:text-slate-600 focus:ring-2 focus:ring-inset focus:ring-orange-300 sm:text-sm sm:leading-6 bg-slate-400;
+}
+
+.label {
+    @apply m-0 block text-sm font-bold leading-6 text-white;
+}
+
+.clear-btn {
+    @apply flex w-12 my-5 justify-center rounded-md bg-white px-2 py-1 text-sm font-semibold text-orange-400 shadow-sm duration-300 active:opacity-90 active:shadow-2xl hover:bg-orange-400 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2;
+}
+
+.update-btn, .submit-btn {
+    @apply flex w-full mb-3 mt-6 justify-center rounded-md bg-orange-500 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm duration-300 active:opacity-80 hover:bg-orange-400 hover:shadow-xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2;
+}
+
+.sign-up-btn, .login-btn, .send-code-btn {
+    @apply flex w-full mb-3 mt-8 justify-center rounded-md bg-orange-500 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm duration-300 active:opacity-80 hover:bg-orange-400 hover:shadow-xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2;
+}
+
+.delete-btn {
+    @apply flex w-full mb-3 mt-6 justify-center border border-black hover:border-red-600 rounded-md bg-red-600 px-3 pt-1.5 pb-1 text-sm font-semibold leading-6 shadow-sm duration-300 active:opacity-80 hover:bg-gray-800 hover:shadow-xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2;
+}
+
+.back-btn li {
+    @apply m-3 shadow-2xl bg-gradient-to-bl from-slate-300 to-slate-500 text-black text-xl border-2 rounded-lg text-center px-8 py-3 hover:scale-105 duration-200;
+}
+
+.topnav ul {
+    @apply flex md:flex-row flex-col md:items-center md:gap-[4vw];
+}
+
+.middle-case li {
+    @apply m-3 shadow-2xl bg-gradient-to-bl from-slate-300 to-slate-500 text-black text-xl border-2 rounded-lg text-center px-8 py-3 hover:scale-105 hover:shadow-2xl duration-200 active:opacity-80;
+}
+
+.subscribe-input {
+    @apply py-2 px-4 mb-4 shadow-sm h-14 text-lg rounded-full w-full xl:w-64 border-0 text-gray-900 ring-1 ring-inset ring-slate-600 placeholder:text-slate-600 focus:ring-2 focus:ring-inset focus:ring-orange-400 sm:text-sm sm:leading-6 bg-slate-200;
+}
+
+.subscribe-btn {
+    @apply flex gap-2 justify-center items-center py-3.5 px-7 rounded-full text-white bg-orange-500 shadow-sm duration-300 active:opacity-80 hover:bg-orange-400 hover:shadow-xl focus-visible:outline w-fit transition-all mx-auto xl:mx-0;
+}
+
+
+
+
+
+
+
+/* :root {
+    --white: #ffffff;
+    --primary: #fbe4d8;
+    --secondary: #dfb6b2;
+    --topnav-text: #190019;
+    --topnav-back: #854F6C;
+    --topnav-space: #dfb6b2;
+    --li-text: #190019;
+    --footer-back: #dfb6b2;
+    --footer-line: #854F6C;
+    --mycard-text: #dfb6b2;
+    --fade-mycard-1: #190019;
+    --fade-mycard-2: #854F6C;
+    --mycard-box-shadow: rgba(0, 0, 0, 0.447);
+    --fade-li-1: #190019;
+    --fade-li-2: #854F6C;
+    --li-box-shadow: rgba(0, 0, 0, 0.447);
+} */
+

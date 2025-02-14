@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %}
+List Product
+{% endblock %}
+
+{% block content %}
+<section class="flex flex-col justify-center px-6 py-12 lg:px-8">
+	<div class="sm:mx-auto sm:w-full sm:max-w-sm">
+		<h2 class="mt-2 text-center text-2xl font-bold leading-9 tracking-tight">List Product</h2>
+	</div>
+
+	<div class="middle-case mt-6 sm:mx-auto sm:w-full sm:max-w-sm border-8 border-slate-500 p-4 rounded-md bg-slate-500">
+		<ul>
+			<a href="{% url 'product:product_index' %}">
+				<li>Back</li>
+			</a>
+		</ul>
+	</div>
+</section>
+{% endblock content %}
+
+
+<!-- topnav last update -->
+
+<!-- <header class="topnav bg-slate-300 rounded-xl m-2 shadow-2xl">
+    <nav class="flex justify-between items-center w-[92%] md:w-[92%] mx-auto">
+        <div class="my-3 text-black text-lg font-bold cursor-pointer">
+          <a href="{% url 'account:home' %}">Home Page</a>
+        </div>
+
+        <div class="nav-links flex justify-around items-center border border-slate-300 rounded-xl absolute bg-slate-300 left-24 right-24 top-16 py-3 md:py-0 invisible md:visible md:static md:min-h-fit md:w-auto">
+            <ul class="">
+                <li class="">
+                    <a href="{% url 'account:home' %}" class="home-button hover:text-orange-700 hover:font-bold">
+                    <i class="bi bi-house text-black inline-block md:hidden"></i>
+                    Home</a>
+                </li> -->

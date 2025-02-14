@@ -1,0 +1,65 @@
+{% load static tailwind_tags %}
+
+{% load static %}
+{% load pwa %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	{% tailwind_css %}
+
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<!-- PWA -->
+	<meta name="theme-color" content="#334155">
+	<link rel="apple-touch-icon" href="{% static 'img/shayan.icns' %}">
+
+	<!-- bootstrap icons -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+	<!-- google fonts -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="stylesheet"
+		href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap">
+	<script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
+
+	<!-- font awesome -->
+	<!-- <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css"> -->
+
+	<!-- Ionic Framework CDN -->
+	<!-- <script type="module" src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.esm.js"></script> -->
+	<!-- <script nomodule src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.js"></script> -->
+	<!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@ionic/core/css/ionic.bundle.css" /> -->
+
+	<!-- <script src="{% static '/js/home-page.js' %}"></script> -->
+	<title>{% block title %}{% endblock %}</title>
+	{% progressive_web_app_meta %}
+</head>
+
+<body>
+
+	{% include "topnav.html" %}
+
+	{% block content %}
+	{% endblock content %}
+
+	{% include 'footer.html' %}
+
+
+	<script src="../static/js/nav-links.js"></script>
+	<script src="../static/js/home-page.js"></script>
+	<script>
+		const navLinks = document.querySelector('.nav-links')
+		function onToggleMenu(e) {
+			e.name = e.name === 'menu' ? 'close' : 'menu'
+			// navLinks.classList.toggle('md:invisible')
+			// navLinks.classList.toggle('hidden')
+			navLinks.classList.toggle('top-[70px]')
+		}
+	</script>
+</body>
+
+</html>

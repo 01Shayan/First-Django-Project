@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %}
+Product
+{% endblock %}
+
+{% block content %}
+<section class="flex flex-col justify-center px-6 py-12 lg:px-8">
+	<div class="sm:mx-auto sm:w-full sm:max-w-sm">
+		<h2 class="mt-2 text-center text-2xl font-bold leading-9 tracking-tight">Product</h2>
+	</div>
+
+	<div class="middle-case mt-6 sm:mx-auto sm:w-full sm:max-w-sm border-8 border-slate-500 p-4 rounded-md bg-slate-500">
+		<ul>
+			<a href="{% url 'product:new_product' %}">
+				<li>New Product</li>
+			</a>
+			<a href="{% url 'product:list_product' %}">
+				<li>List Product</li>
+			</a>
+			<a href="{% url 'account:home' %}">
+				<li>Back</li>
+			</a>
+		</ul>
+	</div>
+</section>
+{% endblock content %}

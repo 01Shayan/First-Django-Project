@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %}
+Register
+{% endblock %}
+
+{% block content %}
+<section class="flex flex-col justify-center px-6 py-12 lg:px-8">
+	<div class="sm:mx-auto sm:w-full sm:max-w-sm">
+		<h2 class="mt-2 text-center text-2xl font-bold leading-9 tracking-tight">Sign up</h2>
+	</div>
+
+	<div class="mt-6 sm:mx-auto sm:w-full sm:max-w-sm">
+		<form action="{% url 'account:register' %}" method="post">
+			{% csrf_token %}
+			<div class="my-3">
+				<label class="label" for="username">Username<span class="text-red-500"> *</span></label>
+
+				<input class="input" name="username" type="text" autocomplete="username" required id="username">
+			</div>
+
+			<div class="mt-3 flex justify-between">
+				<div class="justify-start w-[50%] mr-3">
+					<label class="label" for="first_name">Firstname</label>
+
+					<input class="input" name="first_name" type="text" id="first_name">
+				</div>
+
+				<div class="justify-end w-[50%] ml-3">
+					<label class="label" for="last_name">Lastname</label>
+
+					<input class="input" name="last_name" type="text" id="last_name">
+				</div>
+			</div>
+
+			<div class="my-3 mt-0">
+				<label class="label" for="password">Password<span class="text-red-500"> *</span></label>
+
+				<input class="input" name="password" type="password" autocomplete="current-password" required id="password">
+			</div>
+
+			<div class="my-3">
+				<label class="label" for="email">Email<span class="text-red-500"> *</span></label>
+
+				<input class="input" name="email" type="email" required id="email">
+			</div>
+
+			<div class="my-3">
+				<button class="sign-up-btn" type="submit">Sign up</button>
+			</div>
+		</form>
+
+		<div>
+			<p class="mt-10 text-center text-sm text-orange-400">
+				Already Sign up?
+				<a href="{% url 'account:login' %}"
+					class="font-semibold leading-6 text-slate-200 hover:text-slate-300 duration-300">Login Now</a>
+			</p>
+		</div>
+	</div>
+</section>
+{% endblock content %}

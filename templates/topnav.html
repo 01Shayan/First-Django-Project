@@ -1,0 +1,99 @@
+{% load static %}
+
+
+
+<header class="topnav bg-slate-300 rounded-xl m-2 shadow-2xl">
+	<nav class="flex justify-between items-center w-[92%] md:w-[92%] mx-auto">
+		<div class="my-3 text-black text-lg font-bold cursor-pointer">
+			<a href="{% url 'account:home' %}">Home Page</a>
+		</div>
+
+		<div class="hidden md:block">
+			<ul class="flex justify-center">
+				<li class="">
+					<a href="{% url 'account:home' %}" class="home-button hover:text-orange-700 hover:font-bold duration-300">
+						Home</a>
+				</li>
+
+				{% if request.user.is_authenticated %}
+				<li class="flex-initial hover:text-orange-700 hover:font-bold duration-300">
+					<a href="{% url 'account:profile' %}">
+						Profile</a>
+				</li>
+
+				<li class="flex-initial hover:text-orange-700 hover:font-bold duration-300">
+					<a href="{% url 'product:product_index' %}">
+						Product</a>
+				</li>
+
+				<li class="flex-initial hover:text-orange-700 hover:font-bold duration-300">
+					<a href="{% url 'account:get_user' %}">
+						Users List</a>
+				</li>
+				{% endif %}
+				<li class="flex-initial hover:text-orange-700 hover:font-bold duration-300">
+					<a href="{% url 'contact_us:about' %}">
+						About</a>
+				</li>
+			</ul>
+		</div>
+
+		<div class="flex items-center gap-2 text-xs">
+			{% if request.user.is_authenticated %}
+			<a href="{% url 'account:profile' %}"
+				class="bg-slate-300 duration-300 text-orange-400 border-2 border-orange-400 px-2 py-1 rounded-full uppercase font-bold hover:bg-orange-400 hover:text-white active:bg-orange-500 active:border-orange-500">
+				Hi {{ request.user | title}}</a>
+
+			<a href="{% url 'account:logout' %}"
+				class="duration-300 hidden sm:block bg-orange-400 text-white border-2 border-orange-400 px-2 py-1 rounded-full uppercase font-bold hover:bg-orange-500 hover:border-orange-500">
+				Logout</a>
+			<!-- <div class="bg-orange-400 duration-300 text-white border-2 border-orange-400 px-2 py-1 rounded-full uppercase font-bold hover:bg-orange-500 hover:border-orange-500 block sm:hidden">
+				<svg class="bi bi-box-arrow-right fill-white stroke-full" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+					<path fill-rule="evenodd" d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0z"/>
+					<path fill-rule="evenodd" d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708z"/>
+				</svg>
+			</div> -->
+			{% else %}
+			<a href="{% url 'account:login' %}"
+				class="bg-slate-300 active:opacity-80 active:shadow-2xl duration-300 text-orange-400 border-2 border-orange-400 px-2 py-1 rounded-full uppercase font-bold hover:bg-orange-400 hover:text-white">
+				Login</a>
+
+			<a href="{% url 'account:register' %}"
+				class="bg-orange-400 active:opacity-80 active:shadow-2xl duration-300 text-white border-2 border-orange-400 px-2 py-1 rounded-full uppercase font-bold hover:bg-orange-500 hover:border-orange-500">
+				Sign up</a>
+			{% endif %}
+			<ion-icon onclick="onToggleMenu(this)" name="menu"
+				class="text-3xl cursor-pointer hover:text-orange-500 duration-300 md:hidden"></ion-icon>
+		</div>
+	</nav>
+
+	<div
+		class="bg-opacity-90 nav-links justify-around text-center border-0 rounded-xl absolute bg-slate-300 left-2 right-2 top-[-300px] md:hidden duration-200">
+		<ul class="py-3">
+			<a class="hover:bg-slate-200 duration-300 py-2 drop-shadow-2xl hover:font-bold hover:text-orange-600"
+				href="{% url 'account:home' %}"><i class="bi bi-house text-black inline-block"></i>
+				Home</a>
+			{% if request.user.is_authenticated %}
+			<a class="hover:bg-slate-200 duration-300 py-2 drop-shadow-2xl hover:font-bold hover:text-orange-600"
+				href="{% url 'account:profile' %}"><i class="bi bi-person text-black inline-block"></i>
+				Profile</a>
+
+			<a class="hover:bg-slate-200 duration-300 py-2 drop-shadow-2xl hover:font-bold hover:text-orange-600"
+				href="{% url 'product:product_index' %}"><i class="bi bi-box-seam text-black inline-block"></i>
+				Product</a>
+
+			<a class="hover:bg-slate-200 duration-300 py-2 drop-shadow-2xl hover:font-bold hover:text-orange-600"
+				href="{% url 'account:get_user' %}"><i class="bi bi-people text-black inline-block"></i>
+				Users List</a>
+			{% endif %}
+			<a class="hover:bg-slate-200 duration-300 py-2 drop-shadow-2xl hover:font-bold hover:text-orange-600"
+				href="{% url 'contact_us:about' %}"><i class="bi bi-info-circle text-black inline-block"></i>
+				About</a>
+			{% if request.user.is_authenticated %}
+			<a class="block sm:hidden hover:bg-slate-200 duration-300 py-2 drop-shadow-2xl hover:font-bold hover:text-orange-600"
+				href="{% url 'account:logout' %}"><i class="bi bi-box-arrow-right text-black"></i>
+				Logout</a>
+			{% endif %}
+		</ul>
+	</div>
+</header>

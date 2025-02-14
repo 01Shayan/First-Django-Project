@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %}
+Shayan
+{% endblock %}
+
+{% block content %}
+<section class="flex flex-col justify-center px-6 py-12 lg:px-8">
+	<div class="sm:mx-auto sm:w-full sm:max-w-sm">
+		<h2 class="mt-2 text-center text-2xl font-bold leading-9 tracking-tight">Welcome</h2>
+	</div>
+
+	<div class="middle-case mt-6 sm:mx-auto sm:w-full sm:max-w-sm border-8 border-slate-500 p-4 rounded-md bg-slate-500">
+		<ul>
+			{% if request.user.is_authenticated %}
+			<a href="{% url 'account:profile' %}">
+				<li>Profile</li>
+			</a>
+
+			<a href="{% url 'product:product_index' %}">
+				<li>Product</li>
+			</a>
+
+			<a href="{% url 'account:get_user' %}">
+				<li>Users List</li>
+			</a>
+
+			<!-- <a href="/account/logout"><li>Logout</li></a> -->
+			{% else %}
+			<a href="{% url 'account:login' %}">
+				<li>Login</li>
+			</a>
+			{% endif %}
+		</ul>
+	</div>
+</section>
+{% endblock content %}

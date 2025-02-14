@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %}
+New Product
+{% endblock %}
+
+{% block content %}
+<section class="flex flex-col justify-center px-6 py-12 lg:px-8">
+	<div class="sm:mx-auto sm:w-full sm:max-w-sm">
+		<h2 class="mt-2 text-center text-2xl font-bold leading-9 tracking-tight">New Product</h2>
+	</div>
+
+	<div class="mt-6 sm:mx-auto sm:w-full sm:max-w-sm">
+		<form action="{% url 'product:new_product' %}" method="post" enctype="multipart/form-data">
+			{% csrf_token %}
+			<div class="my-3">
+				<label class="label" for="product_name">Product Name</label>
+
+				<input class="input" name="product_name" type="text" required id="product_name">
+			</div>
+
+			<div class="my-3">
+				<label class="label" for="image_product">Image Product</label>
+
+				<input class="input text-center file:rounded-full file:border-0 file:bg-slate-400" name="image_product"
+					type="file" placeholder="Image product" required id="image_product">
+			</div>
+
+			<div class="my-6">
+				<button class="submit-btn cursor-copy" type="submit">Add</button>
+			</div>
+
+			<ul class="back-btn">
+				<a href="{% url 'product:product_index' %}">
+					<li>Back</li>
+				</a>
+			</ul>
+		</form>
+		{% comment %}
+		{% for product in products %}
+		{{ product.product_name }} - <img width="200" height="200" src="{{ product.photo.url }}"
+			alt="{{ product.product_name }}" />
+		{% endfor %}
+		{% endcomment %}
+	</div>
+</section>
+{% endblock content %}
